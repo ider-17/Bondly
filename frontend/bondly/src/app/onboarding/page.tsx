@@ -65,7 +65,7 @@ export default function Onboarding() {
       console.error("Failed to submit:", error)
       alert(`Failed to save. Error: ${error.message}`)
     } else {
-      router.push("/home")
+      router.push("/newbie/home")
     }
   }
 
