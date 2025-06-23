@@ -37,39 +37,25 @@ export default function NewbieLoginPage() {
     const { data: { user } } = await supabase.auth.getUser()
     if (!user) return router.push("/login")
 
-    const { data: profile } = await supabase
-      .from("user_profiles")
-      .select("id")
-      .eq("id", user.id)
-      .single()
-
-    if (profile) {
-      router.push("/home")
-    } else {
-      router.push("/onboarding")
-    }
+    // Always redirect to onboarding after successful login
+    router.push("/onboarding")
   }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4 text-black">
       <div className="max-w-md w-full space-y-6">
-        
+
         <div className="text-center">
           <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-blue-100">
-            <img src={"handshake.png"}></img>
+            <img src={"handshake.png"} alt="Handshake" />
           </div>
           <h2 className="mt-4 text-2xl font-bold text-gray-900">BuddyConnect</h2>
           <p className="text-sm text-gray-500">Let’s begin your onboarding journey.</p>
         </div>
 
-        <form
-          onSubmit={handleLogin}
-          className="rounded-lg bg-white shadow-md p-8 space-y-5"
-        >
+        <form onSubmit={handleLogin} className="rounded-lg bg-white shadow-md p-8 space-y-5">
           <div className='flex flex-col items-center'>
-            <h3 className="text-2xl font-bold text-gray-900 mb-1">
-              Sign in to your account
-            </h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-1">Sign in to your account</h3>
             <p className="text-sm text-gray-500 mb-4">
               Enter your email and password to access your dashboard
             </p>

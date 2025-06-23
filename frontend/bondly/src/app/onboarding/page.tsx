@@ -55,25 +55,24 @@ export default function Onboarding() {
 
     const { error } = await supabase.from("user_profiles").insert({
       id: userId,
-      interests,
+      interests, 
       experience,
     })
 
+    setLoading(false)
+
     if (error) {
       console.error("Failed to submit:", error)
-      alert("Failed to save. Try again.")
+      alert(`Failed to save. Error: ${error.message}`)
     } else {
       router.push("/home")
     }
-
-    setLoading(false)
   }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4 py-8 text-black">
       <div className="max-w-md w-full bg-white p-6 sm:p-8 rounded-xl shadow-md space-y-6">
 
-        {/* Icon + Title */}
         <div className="text-center">
           <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
             <span className="text-green-600 text-lg">🌱</span>
@@ -84,7 +83,6 @@ export default function Onboarding() {
           </p>
         </div>
 
-        {/* Interests */}
         <div className="space-y-2">
           <p className="text-sm text-gray-600">Select 3–6 interests</p>
           <div className="flex flex-wrap gap-2 justify-center">
@@ -104,7 +102,6 @@ export default function Onboarding() {
           </div>
         </div>
 
-        {/* Experience input */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Previous Experience
@@ -118,7 +115,6 @@ export default function Onboarding() {
           />
         </div>
 
-        {/* Navigation */}
         <div className="flex justify-between items-center pt-2">
           <button
             type="button"
