@@ -1,10 +1,9 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@supabase/supabase-js'
 
-// Supabase client init (эсвэл import хийсэн байж болно)
 const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
@@ -16,9 +15,28 @@ export default function NewbieLoginPage() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        const checkLoggedIn = async () => {
+            const { data: { session } } = await supabase.auth.getSession()
+
+            if (session) {
+                // Хэрвээ session байгаа бол profile шалгана
+                await checkProfileAndRedirect()
+            } else {
+                // Session байхгүй → login form харуулна
+                setLoading(false)
+            }
+        }
+
+        checkLoggedIn()
+    }, [])
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault()
+        setError('')
+        setLoading(true)
 
         const { data, error } = await supabase.auth.signInWithPassword({
             email,
@@ -27,9 +45,31 @@ export default function NewbieLoginPage() {
 
         if (error) {
             setError(error.message)
+            setLoading(false)
         } else {
-            router.push('/newbie/home')
+            await checkProfileAndRedirect()
         }
+    }
+
+    const checkProfileAndRedirect = async () => {
+        const { data: { user } } = await supabase.auth.getUser()
+        if (!user) return router.push("/newbie/login")
+
+        const { data: profile } = await supabase
+            .from("user_profiles")
+            .select("id")
+            .eq("id", user.id)
+            .single()
+
+        if (profile) {
+            router.push("/newbie/home")
+        } else {
+            router.push("/newbie/onboarding")
+        }
+    }
+
+    if (loading) {
+        return <div className="text-center mt-10">Уншиж байна...</div>
     }
 
     return (
