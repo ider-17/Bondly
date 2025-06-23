@@ -15,23 +15,7 @@ export default function NewbieLoginPage() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
-    const [loading, setLoading] = useState(true)
-
-    useEffect(() => {
-        const checkLoggedIn = async () => {
-            const { data: { session } } = await supabase.auth.getSession()
-
-            if (session) {
-                // Хэрвээ session байгаа бол profile шалгана
-                await checkProfileAndRedirect()
-            } else {
-                // Session байхгүй → login form харуулна
-                setLoading(false)
-            }
-        }
-
-        checkLoggedIn()
-    }, [])
+    const [loading, setLoading] = useState(false)
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault()
@@ -48,6 +32,7 @@ export default function NewbieLoginPage() {
             setLoading(false)
         } else {
             await checkProfileAndRedirect()
+            setLoading(false)
         }
     }
 
