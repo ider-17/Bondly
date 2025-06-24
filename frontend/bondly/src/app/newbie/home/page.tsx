@@ -3,18 +3,11 @@
 import { useEffect, useState } from 'react'
 import { createClient } from '@supabase/supabase-js'
 import SideBarMenu from '@/app/_components/SideBarMenu'
-<<<<<<< HEAD
-import ChallHeader from '@/app/_components/ChallHeader'
-import RotatingBuddyCard from '@/app/_components/RotatingBuddyCard'
-=======
-import Header from '@/app/_components/Header'
-import RotatingBuddyCard from '@/app/buddy/components/RotatingBuddyCard'
->>>>>>> e7147d2 (sda)
+// import Header from '@/app/_components/Header'
+import RotatingBuddyCard from '@/app/buddy/components/RotatingInternCard'
 import EventsThisWeek from '@/app/_components/EventsThisWeek'
 import YourProgress from '@/app/_components/YourProgress'
 import ActiveChallenges from '@/app/_components/ActiveChallenges'
-import Challenges from '@/app/_components/Challenges'
-import HeaderHome from '@/app/_components/HeaderHome'
 
 const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -22,7 +15,7 @@ const supabase = createClient(
 )
 
 export default function NewbieHomePage() {
-    const [selectedSection, setSelectedSection] = useState('Home')
+    const [selectedSection, setSelectedSection] = useState("Home")
     const [challenges, setChallenges] = useState<any[]>([])
     const [description, setDescription] = useState('')
     const [selectedId, setSelectedId] = useState<string | null>(null)
@@ -74,7 +67,7 @@ export default function NewbieHomePage() {
         switch (selectedSection) {
             case 'Home':
                 return (
-                    <div className='flex gap-5 p-5 mr-20'>
+                    <div className='flex gap-5 p-5 mt-21'>
                         <div className='w-1/2 space-y-5'>
                             <RotatingBuddyCard />
                             <EventsThisWeek />
@@ -87,13 +80,13 @@ export default function NewbieHomePage() {
                 )
             case 'Challenges':
                 return (
-                    <div className='p-6 mr-20'>
-                        <Challenges></Challenges>
+                    <div className="p-6 mt-100 max-w-2xl">
+                        Challenge section
                     </div>
                 )
             case 'Advice':
                 return (
-                    <div className='p-6 mt-100 mr-20'>
+                    <div className="p-6 mt-100">
                         Advice section
                     </div>
                 )
@@ -109,7 +102,7 @@ export default function NewbieHomePage() {
                 selectedSection={selectedSection}
             />
             <div className='w-full ml-[264px]'>
-                {selectedSection === 'Challenges' ? <ChallHeader /> : <HeaderHome />}
+                {/* <Header /> */}
                 {renderContent()}
             </div>
         </div>
