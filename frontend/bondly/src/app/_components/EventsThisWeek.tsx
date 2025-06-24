@@ -19,7 +19,7 @@ export default function EventsThisWeek() {
                     </div>
 
                     <div>
-                        <h6 className='text-base font-medium'>Taam lunch</h6>
+                        <h6 className='text-base font-medium'>Team lunch</h6>
                         <p className='text-sm font-medium text-neutral-600'>Monday at 12:30 PM</p>
                     </div>
                 </div>

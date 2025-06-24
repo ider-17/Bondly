@@ -2,10 +2,8 @@
 
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Progress } from "@radix-ui/react-progress";
-import { BookOpen, CalendarDays, LayoutGrid, List, Mountain, NotebookPen, Star, Trophy } from "lucide-react";
+import { BookOpen, CalendarDays, FilePlus2, LayoutGrid, List, Mountain, Star } from "lucide-react";
 import { useState } from "react";
 import {
     Select,
@@ -99,8 +97,10 @@ export default function Challenges() {
                             </SelectTrigger>
                             <SelectContent>
                                 <SelectItem value="all">All weeks</SelectItem>
-                                <SelectItem value="this">This week</SelectItem>
-                                <SelectItem value="next">Next week</SelectItem>
+                                <SelectItem value="week1">Week 1</SelectItem>
+                                <SelectItem value="week2">Week 2</SelectItem>
+                                <SelectItem value="week3">Week 3</SelectItem>
+                                <SelectItem value="week4">Week 4</SelectItem>
                             </SelectContent>
                         </Select>
                     </div>
@@ -121,16 +121,12 @@ export default function Challenges() {
                         <div className="flex items-center mt-4 gap-2">
                             <span className="px-3 py-1 text-sm rounded-full bg-gray-100 text-black font-medium">Week 1</span>
                             <span className="px-3 py-1 text-sm rounded-full bg-green-200 text-green-900 font-semibold">Easy</span>
-                            <span className="px-3 py-1 text-sm rounded-full border border-gray-300 text-black font-medium flex items-center gap-1">
-                                <Star className="w-4 h-4 stroke-[2.2]" />
-                                20
-                            </span>
                         </div>
 
                         <div className="mt-4">
                             <Dialog>
                                 <DialogTrigger className="p-3 bg-white rounded-xl border flex gap-2 items-center">
-                                    Write Note <NotebookPen className="w-4 h-4" />
+                                    Write Note <FilePlus2 size={20} />
                                 </DialogTrigger>
                                 <DialogContent>
                                     <DialogHeader>

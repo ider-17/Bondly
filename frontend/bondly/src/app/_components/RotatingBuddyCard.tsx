@@ -28,7 +28,11 @@ export default function RotatingBuddyCard() {
                         </div>
                     </div>
 
-                    <div className='rounded-xl py-1 px-[10px] bg-green-100 text-green-500 text-xs font-medium'>• Online</div>
+                    <div className='rounded-xl py-1 px-[10px] bg-green-100 text-green-500 text-xs font-medium flex items-center gap-[6px]'><svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="4" cy="4" r="4" fill="#22C55E" />
+                    </svg>
+                        <p>Online</p>
+                    </div>
                 </div>
 
                 <div className='w-full flex gap-3'>
@@ -49,7 +53,12 @@ export default function RotatingBuddyCard() {
                 <div className='flex justify-between items-center mb-3'>
                     <p className='text-sm font-medium text-neutral-600'>This week’s micro-goal:</p>
 
-                    <div className='rounded-full py-1 px-[10px] bg-orange-100 text-orange-500 text-xs font-medium'>• In Progress</div>
+                    <div className='rounded-full py-1 px-[10px] bg-orange-100 text-orange-500 text-xs font-medium flex items-center gap-[6px]'>
+                        <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="4" cy="4" r="4" fill="#F97316" />
+                        </svg>
+                        <p>In Progress</p>
+                    </div>
                 </div>
 
                 <p>Манай бүтээгдэхүүн хөгжүүлэлтийн төлөвлөгөө ба хэрэглэгчийн <br /> санал хүсэлт авах үйл явцтай танилцаарай ☺ ️</p>

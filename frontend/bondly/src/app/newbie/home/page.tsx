@@ -3,13 +3,13 @@
 import { useEffect, useState } from 'react'
 import { createClient } from '@supabase/supabase-js'
 import SideBarMenu from '@/app/_components/SideBarMenu'
-import Header from '@/app/_components/Header'
 import ChallHeader from '@/app/_components/ChallHeader'
 import RotatingBuddyCard from '@/app/_components/RotatingBuddyCard'
 import EventsThisWeek from '@/app/_components/EventsThisWeek'
 import YourProgress from '@/app/_components/YourProgress'
 import ActiveChallenges from '@/app/_components/ActiveChallenges'
 import Challenges from '@/app/_components/Challenges'
+import HeaderHome from '@/app/_components/HeaderHome'
 
 const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -69,7 +69,7 @@ export default function NewbieHomePage() {
         switch (selectedSection) {
             case 'Home':
                 return (
-                    <div className='flex gap-5 p-5 mt-21'>
+                    <div className='flex gap-5 p-5 mr-20'>
                         <div className='w-1/2 space-y-5'>
                             <RotatingBuddyCard />
                             <EventsThisWeek />
@@ -82,13 +82,13 @@ export default function NewbieHomePage() {
                 )
             case 'Challenges':
                 return (
-                    <div className='p-6 mt-23 mr-50 '>
+                    <div className='p-6 mr-20'>
                         <Challenges></Challenges>
                     </div>
                 )
             case 'Advice':
                 return (
-                    <div className='p-6 mt-100'>
+                    <div className='p-6 mt-100 mr-20'>
                         Advice section
                     </div>
                 )
@@ -104,7 +104,7 @@ export default function NewbieHomePage() {
                 selectedSection={selectedSection}
             />
             <div className='w-full ml-[264px]'>
-                {selectedSection === 'Challenges' ? <ChallHeader /> : <Header />}
+                {selectedSection === 'Challenges' ? <ChallHeader /> : <HeaderHome />}
                 {renderContent()}
             </div>
         </div>
