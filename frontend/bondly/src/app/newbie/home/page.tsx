@@ -1,8 +1,13 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
 import { createClient } from '@supabase/supabase-js'
+import SideBarMenu from '@/app/_components/SideBarMenu'
+import Header from '@/app/_components/Header'
+import RotatingBuddyCard from '@/app/_components/RotatingBuddyCard'
+import EventsThisWeek from '@/app/_components/EventsThisWeek'
+import YourProgress from '@/app/_components/YourProgress'
+import ActiveChallenges from '@/app/_components/ActiveChallenges'
 
 const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -58,7 +63,27 @@ export default function NewbieHomePage() {
     }
 
     return (
-        <div className="p-6 max-w-2xl mx-auto">
+        <div className='w-full h-screen bg-white flex text-black overflow-scroll'>
+            <SideBarMenu />
+            <div className='w-full ml-[264px]'>
+                <Header />
+                <div className='flex gap-5 p-5 mt-21'>
+                    <div className='w-1/2 space-y-5'>
+                        <RotatingBuddyCard />
+                        <EventsThisWeek />
+                    </div>
+
+                    <div className='w-1/2 space-y-5'>
+                        <YourProgress />
+                        <ActiveChallenges />
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+{/* <div className="p-6 max-w-2xl mx-auto">
             <h1 className="text-2xl font-bold mb-4">Таны даалгаврууд</h1>
 
             <div className="space-y-4">
@@ -93,6 +118,4 @@ export default function NewbieHomePage() {
                     {message && <p className="text-green-600">{message}</p>}
                 </form>
             )}
-        </div>
-    )
-}
+        </div> */}
