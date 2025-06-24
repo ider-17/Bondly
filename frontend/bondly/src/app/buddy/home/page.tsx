@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 import SideBarMenu from "@/app/_components/SideBarMenu";
 import EventsThisWeek from "@/app/_components/EventsThisWeek";
-import RotatingInternCard from "@/app/_components/RotatingInternCard";
+// import RotatingInternCard from "@/app/_components/RotatingInternCard";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Bell } from "lucide-react";
 import InternProgress from "../components/InternProgress";
@@ -70,7 +70,7 @@ export default function BuddyHomePage() {
         return (
           <div className="flex gap-5 p-5 mt-21">
             <div className="w-1/2 space-y-5">
-              <RotatingInternCard />
+              {/* <RotatingInternCard /> */}
               <EventsThisWeek />
             </div>
             <div className="w-1/2 space-y-5">

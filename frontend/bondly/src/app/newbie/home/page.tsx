@@ -8,6 +8,7 @@ import RotatingBuddyCard from '@/app/buddy/components/RotatingInternCard'
 import EventsThisWeek from '@/app/_components/EventsThisWeek'
 import YourProgress from '@/app/_components/YourProgress'
 import ActiveChallenges from '@/app/_components/ActiveChallenges'
+import HeaderHome from '@/app/_components/HeaderHome'
 
 const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -102,7 +103,7 @@ export default function NewbieHomePage() {
                 selectedSection={selectedSection}
             />
             <div className='w-full ml-[264px]'>
-                {/* <Header /> */}
+                <HeaderHome />
                 {renderContent()}
             </div>
         </div>
