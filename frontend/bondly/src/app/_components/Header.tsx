@@ -3,7 +3,7 @@ import { Bell } from "lucide-react"
 
 export default function Header() {
     return (
-        <header className='fixed top-0 right-0 w-full pl-[284px] header p-5 pr-20 flex justify-between bg-slate-50 items-center border-b border-neutral-300'>
+        <header className='fixed top-0 right-0 w-full pl-[284px] header p-5 pr-20 flex justify-between bg-slate-50 items-center border-b border-neutral-300 z-2'>
             <div className='flex gap-3 items-center'>
                 <Avatar className='w-10 h-10'>
                     <AvatarImage src="https://github.com/shadcn.png" />
