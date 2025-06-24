@@ -15,6 +15,7 @@ const supabase = createClient(
 )
 
 export default function NewbieHomePage() {
+    const [selectedSection, setSelectedSection] = useState("Home")
     const [challenges, setChallenges] = useState<any[]>([])
     const [description, setDescription] = useState('')
     const [selectedId, setSelectedId] = useState<string | null>(null)
@@ -62,60 +63,48 @@ export default function NewbieHomePage() {
         }
     }
 
+    const renderContent = () => {
+        switch (selectedSection) {
+            case 'Home':
+                return (
+                    <div className='flex gap-5 p-5 mt-21'>
+                        <div className='w-1/2 space-y-5'>
+                            <RotatingBuddyCard />
+                            <EventsThisWeek />
+                        </div>
+                        <div className='w-1/2 space-y-5'>
+                            <YourProgress />
+                            <ActiveChallenges />
+                        </div>
+                    </div>
+                )
+            case 'Challenges':
+                return (
+                    <div className="p-6 mt-100 max-w-2xl">
+                        Challenge section
+                    </div>
+                )
+            case 'Advice':
+                return (
+                    <div className="p-6 mt-100">
+                        Advice section
+                    </div>
+                )
+            default:
+                return null
+        }
+    }
+
     return (
         <div className='w-full h-screen bg-white flex text-black overflow-scroll'>
-            <SideBarMenu />
+            <SideBarMenu
+                onSelectSection={(section) => setSelectedSection(section)}
+                selectedSection={selectedSection}
+            />
             <div className='w-full ml-[264px]'>
                 <Header />
-                <div className='flex gap-5 p-5 mt-21'>
-                    <div className='w-1/2 space-y-5'>
-                        <RotatingBuddyCard />
-                        <EventsThisWeek />
-                    </div>
-
-                    <div className='w-1/2 space-y-5'>
-                        <YourProgress />
-                        <ActiveChallenges />
-                    </div>
-                </div>
+                {renderContent()}
             </div>
         </div>
     )
 }
-
-{/* <div className="p-6 max-w-2xl mx-auto">
-            <h1 className="text-2xl font-bold mb-4">Таны даалгаврууд</h1>
-
-            <div className="space-y-4">
-                {challenges.map((c) => (
-                    <div
-                        key={c.id}
-                        className={`border p-4 rounded cursor-pointer ${selectedId === c.id ? 'bg-blue-100' : ''
-                            }`}
-                        onClick={() => setSelectedId(c.id)}
-                    >
-                        <h2 className="font-semibold text-white">{c.title}</h2>
-                        <p className="text-sm text-white">{c.description}</p>
-                    </div>
-                ))}
-            </div>
-
-            {selectedId && (
-                <form onSubmit={handleSubmit} className="mt-6 space-y-4">
-                    <textarea
-                        className="w-full border p-2 rounded"
-                        placeholder="Даалгаврынхаа тайлбарыг бичнэ үү..."
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)}
-                        rows={4}
-                    />
-                    <button
-                        type="submit"
-                        className="bg-blue-600 text-white px-4 py-2 rounded"
-                    >
-                        Илгээх
-                    </button>
-                    {message && <p className="text-green-600">{message}</p>}
-                </form>
-            )}
-        </div> */}
