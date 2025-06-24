@@ -55,9 +55,8 @@ export default function SideBarMenu({ onSelectSection, selectedSection }: SideBa
             {menuItems.map((item) => (
               <div
                 key={item.label}
-                className={`w-full p-2 rounded-md flex gap-2 justify-between items-center cursor-pointer ${
-                  selectedSection === item.label ? 'bg-slate-200' : 'bg-white'
-                }`}
+                className={`w-full p-2 rounded-md flex gap-2 justify-between items-center cursor-pointer ${selectedSection === item.label ? 'bg-slate-200' : 'bg-white'
+                  }`}
                 onClick={() => onSelectSection(item.label)}
               >
                 <div className='flex gap-2 items-center'>
