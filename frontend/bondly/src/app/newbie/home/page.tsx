@@ -3,8 +3,13 @@
 import { useEffect, useState } from 'react'
 import { createClient } from '@supabase/supabase-js'
 import SideBarMenu from '@/app/_components/SideBarMenu'
+<<<<<<< HEAD
 import ChallHeader from '@/app/_components/ChallHeader'
 import RotatingBuddyCard from '@/app/_components/RotatingBuddyCard'
+=======
+import Header from '@/app/_components/Header'
+import RotatingBuddyCard from '@/app/buddy/components/RotatingBuddyCard'
+>>>>>>> e7147d2 (sda)
 import EventsThisWeek from '@/app/_components/EventsThisWeek'
 import YourProgress from '@/app/_components/YourProgress'
 import ActiveChallenges from '@/app/_components/ActiveChallenges'

@@ -3,18 +3,18 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 
-export default function RotatingBuddyCard() {
+export default function RotatingInternCard() {
     return (
         <div className='bg-slate-50 py-5 px-6 rounded-xl border border-[#D4D4D4] space-y-5'>
             <div className='flex gap-3 items-center'>
                 <div className='w-8 h-8 rounded-lg bg-orange-100 flex items-center justify-center'>
                     <Handshake size={20} color='#F97316' />
                 </div>
-                <h6 className='font-semibold text-lg'>Intern You’re Guiding</h6>
+                <h6 className='font-semibold text-lg'>Your buddy for 2 weeks</h6>
             </div>
 
             <div className='bg-orange-50 rounded-lg p-3'>
-                <h6 className='text-orange-700'>Follow your intern’s journey - track progress, give feedback, and help them grow.</h6>
+                <h6 className='text-orange-700'>Meet someone new! Chats and micro-goals every 2 weeks</h6>
             </div>
 
             <div>
@@ -25,24 +25,19 @@ export default function RotatingBuddyCard() {
                             <AvatarFallback>CN</AvatarFallback>
                         </Avatar>
                         <div>
-                            <h6 className='text-base font-medium'>Togtuun</h6>
+                            <h6 className='text-base font-medium'>Dulguunbayr Tselmeg</h6>
                             <p className='text-[#525252] text-sm font-medium'>Product Manager</p>
                         </div>
                     </div>
 
-                    <div className='rounded-xl py-1 px-[10px] bg-green-100 text-green-500 text-xs font-medium flex items-center gap-[6px]'><svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="4" cy="4" r="4" fill="#22C55E" />
-                    </svg>
-                        <p>Online</p>
-                    </div>
+                    <Badge className="bg-green-100 text-green-500" variant="default">• Online</Badge>
                 </div>
 
                 <div className='w-full flex gap-3'>
                     <Button className="w-1/2 h-10 bg-blue-500 text-white hover:text-blue-500 hover:bg-white hover:border-blue-300 cursor-pointer" variant="outline"><Mail /> Contact me</Button>
 
-                    <Button className="w-1/2 h-10 cursor-pointer hover:bg-sky-100 active:text-white active:bg-black" variant="outline">
-                    <p>See more</p>
-                    <ArrowRight/>
+                    <Button className="w-1/2 h-10 cursor-pointer" variant="outline">See more
+                    <ArrowRight size={26} color='black' />
                     </Button>
                 </div>
             </div>
@@ -53,15 +48,10 @@ export default function RotatingBuddyCard() {
                 <div className='flex justify-between items-center mb-3'>
                     <p className='text-sm font-medium text-neutral-600'>This week’s micro-goal:</p>
 
-                    <div className='rounded-full py-1 px-[10px] bg-orange-100 text-orange-500 text-xs font-medium flex items-center gap-[6px]'>
-                        <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="4" cy="4" r="4" fill="#F97316" />
-                        </svg>
-                        <p>In Progress</p>
-                    </div>
+                    <Badge className="bg-orange-100 text-orange-500" variant="default">• In Progress</Badge>
                 </div>
 
-                <p>Intern-тэйгээ 1:1 уулзалт товлоорой 🙌 ️</p>
+                <p>Манай бүтээгдэхүүн хөгжүүлэлтийн төлөвлөгөө ба хэрэглэгчийн <br /> санал хүсэлт авах үйл явцтай танилцаарай ☺ ️</p>
             </div>
         </div>
     )
