@@ -1,4 +1,4 @@
-import { Progress } from "@radix-ui/react-progress";
+import { Progress } from "@/components/ui/progress"
 import { BookOpen, CalendarDays, Mountain, Trophy } from "lucide-react";
 
 export default function YourProgress() {

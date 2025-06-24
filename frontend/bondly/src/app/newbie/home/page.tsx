@@ -3,11 +3,11 @@
 import { useEffect, useState } from 'react'
 import { createClient } from '@supabase/supabase-js'
 import SideBarMenu from '@/app/_components/SideBarMenu'
-import Header from '@/app/_components/Header'
 import RotatingBuddyCard from '@/app/_components/RotatingBuddyCard'
 import EventsThisWeek from '@/app/_components/EventsThisWeek'
 import YourProgress from '@/app/_components/YourProgress'
 import ActiveChallenges from '@/app/_components/ActiveChallenges'
+import HeaderHome from '@/app/_components/HeaderHome'
 
 const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -66,8 +66,8 @@ export default function NewbieHomePage() {
         <div className='w-full h-screen bg-white flex text-black overflow-scroll'>
             <SideBarMenu />
             <div className='w-full ml-[264px]'>
-                <Header />
-                <div className='flex gap-5 p-5 mt-21'>
+                <HeaderHome />
+                <div className='flex gap-5 p-5'>
                     <div className='w-1/2 space-y-5'>
                         <RotatingBuddyCard />
                         <EventsThisWeek />
